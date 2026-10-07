@@ -131,9 +131,9 @@ local Entities = {
 		Alias = "Sally",
 		NotifyMessage = { Title = "Entity 'Sally' has spawned.", Body = "Drop an item for her." }
 	},
-	[”BashMoving”] = {
-		Alias = ”Bash”,
-		NotifyMessage = { Title = ”Entity 'Bash' has spawned.”, Body = ”Find a hiding spot.” }
+	["BashMoving"] = {
+		Alias = "Bash",
+		NotifyMessage = { Title = "Entity 'Bash' has spawned.", Body = "Find a hiding spot." }
 	}
 }
 
@@ -214,8 +214,8 @@ local ItemNames = {
 	["Donut"]             = "Donut",
 	["Lotus"]             = "Lotus",
 	["BoxingGloves"]      = "Boxing Gloves"
-	[”Pizza”]             = ”Pizza”
-	[”PaperPlane”]        = ”Paper Plane”
+	["Pizza"]             = "Pizza"
+	["PaperPlane"]        = "Paper Plane"
 }
 
 local CutsceneNames = {
@@ -1857,7 +1857,7 @@ local HidingSpotLabels = {
 	RetroWardrobe = "Closet", ["Wardrobe-FOOLS26"] = "Closet",
 	Locker_Large = "Locker", Rooms_Locker = "Locker", Rooms_Locker_Fridge = "Locker",
 	Bed = "Bed", Double_Bed = "Double Bed", CircularVent = "Vent", Dumpster = "Dumpster",
-	HidingSpot1 = ”Locker”,HidingSpot2 = ”Locker”, HidingSpot3 = ”Locker”
+	HidingSpot1 = "Locker", HidingSpot2 = "Locker", HidingSpot3 = "Locker"
 }
 local ChestLabels = {
 	ChestBox = true, ChestBoxLocked = true, Toolbox = true, Toolbox_Locked = true,
@@ -1868,7 +1868,7 @@ local EntityESPLabels = {
 	Snare = "Snare", GrumbleRig = "Grumble",
 	Drakobloxxer = "Drakobloxxer", Hole = "Mandrake Hole", Groundskeeper = "Groundskeeper",
 	LiveEntityBramble = "Bramble", Figure = "Figure", FigureRig = "Figure", FigureRagdoll = "Figure",
-	FakeDoor = "Dupe", DoorFake = "Dupe", HonchoRig = ”Honcho”, Creak = ”Creak”, Drone = ”Drone”
+	FakeDoor = "Dupe", DoorFake = "Dupe", HonchoRig = "Honcho", Creak = "Creak", Drone = "Drone"
 }
 
 local NodeEntities = {
