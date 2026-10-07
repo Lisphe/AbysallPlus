@@ -153,7 +153,7 @@ local EntityIcons = {
 	["GlitchAmbush"]    = "rbxassetid://88369678433359",
 	["SallyMoving"]     = "rbxassetid://10840888070",
 	["MonumentEntity"]  = "rbxassetid://88933556873017",
-	["Groundskeeper"]   = "rbxassetid://114991380115557"
+	["Groundskeeper"]   = "rbxassetid://114991380115557",
 	["BashMoving"]      = "rbxassetid://10716032262"
 }
 
@@ -214,8 +214,8 @@ local ItemNames = {
 	["AloeVera"]          = "Aloe Vera",
 	["Donut"]             = "Donut",
 	["Lotus"]             = "Lotus",
-	["BoxingGloves"]      = "Boxing Gloves"
-	["Pizza"]             = "Pizza"
+	["BoxingGloves"]      = "Boxing Gloves",
+	["Pizza"]             = "Pizza",
 	["PaperPlane"]        = "Paper Plane"
 }
 
