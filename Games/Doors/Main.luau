@@ -766,6 +766,7 @@ local EntityDistances = {
 	["GlitchAmbush"]  = 175,
 	["BackdoorRush"]  = 85,
 	["CustomEntity"]  = 85,
+	["BashMoving"]    = 85,
 }
 
 Functions.GetNearestEntity = function(CheckDisabled, List, UseRaycasting)
@@ -1219,7 +1220,7 @@ Toggles.AutoClosetToggle:AddKeyPicker("AutoClosetKeybind", {
 })
 Groupboxes.Self_Automation:AddDropdown("AutoClosetEntityList", {
 	Text = "Ignore List",
-	Values = { "Rush", "Ambush", "Blitz", "A-60", "A-120", "AR0xMBUSH", "RNIUSHCG==" },
+	Values = { "Rush", "Ambush", "Blitz", "A-60", "A-120", "AR0xMBUSH", "RNIUSHCG==", "Bash" },
 	Multi = true, AllowNull = true
 })
 Groupboxes.Self_Automation:AddToggle("SpectateEntityToggle", {
@@ -1709,7 +1710,7 @@ Groupboxes.Visuals_EntitySettings = Groupboxes.Visuals_RightTab:AddTab("Settings
 
 Groupboxes.Visuals_Entities:AddDropdown("EntityList", {
 	Text = "Entity List",
-	Values = { "Rush","Ambush","Eyes","Halt","Blitz","Lookman","Gloombat Swarm","A-60","A-120","Sally","Jeff the Killer","Groundskeeper","Monument","AR0xMBUSH","RNIUSHCG==" },
+	Values = { "Rush","Ambush","Eyes","Halt","Blitz","Lookman","Gloombat Swarm","A-60","A-120","Sally","Jeff the Killer","Groundskeeper","Monument","AR0xMBUSH","RNIUSHCG==", "Bash" },
 	Multi = true, AllowNull = true
 })
 Groupboxes.Visuals_Entities:AddToggle("NotifyEntities",    { Text = "Notify Entities",    Default = false, Tooltip = "Sends a notification when an entity spawns." })
@@ -1799,6 +1800,7 @@ local ObjectiveLabels = {
 	["LeverForGate"]           = "Gate Lever",
 	["MinesGateButton"]        = "Gate Button",
 	["GardenGateButton"]       = "Gate Button",
+	["ArchivesTerminal"]       = "Terminal",
 }
 
 Toggles.ObjectiveESPToggle:OnChanged(function(Value)
@@ -1838,7 +1840,7 @@ Groupboxes.Visuals_ESP_Toggles:AddToggle("LadderESPToggle",     { Text = "Ladder
 Groupboxes.Visuals_ESP_Toggles:AddDivider()
 Groupboxes.Visuals_ESP_Toggles:AddDropdown("EntityESPOptions",     { 
 	Text = "Entity List",
-	Values = { "Rush","Ambush","Eyes","Dupe","Figure","Blitz","Lookman","Snare","Giggle","Gloombat Eggs","Grumble","A-60","A-120","Sally","Jeff the Killer","Groundskeeper","Mandrake Hole","Monument","Bramble","AR0xMBUSH","RNIUSHCG==" },
+	Values = { "Rush","Ambush","Eyes","Dupe","Figure","Blitz","Lookman","Snare","Giggle","Gloombat Eggs","Grumble","A-60","A-120","Sally","Jeff the Killer","Groundskeeper","Mandrake Hole","Monument","Bramble","AR0xMBUSH","RNIUSHCG==","Bash" },
 	Multi = true,
 	AllowNull = true
 })
@@ -2140,7 +2142,7 @@ Functions.RoomsAutoWalk.GetNearestHidingSpot = function()
 	return Nearest.Object
 end
 
-local RoomsEntityList = { "RushMoving","AmbushMoving","BackdoorRush","A60","A120","CustomEntity","GlitchRush","GlitchAmbush" }
+local RoomsEntityList = { "RushMoving","AmbushMoving","BackdoorRush","A60","A120","CustomEntity","GlitchRush","GlitchAmbush","BashMoving" }
 Functions.RoomsAutoWalk.GetPathfindTarget = function()
 	for _, Object in Services.Workspace:GetChildren() do
 		if table.find(RoomsEntityList, Object.Name) and Object.PrimaryPart then
@@ -4157,7 +4159,7 @@ end
 local AutoInteractBlacklist = {
 	HidePrompt=true, RiftPrompt=true, StarRiftPrompt=true, InteractPrompt=true, ClimbPrompt=true,
 	DonatePrompt=true, DialoguePrompt=true, RevivePrompt=true, EnterPrompt=true, AnimatePrompt=true,
-	ToolEventPrompt=true, Prompt=true, PropPrompt=true
+	ToolEventPrompt=true, Prompt=true, PropPrompt=true, SeatPrompt=true
 }
 
 local TriggerDebounce = false
@@ -4368,7 +4370,7 @@ Connections.FogHandler2 = Services.Lighting.DescendantAdded:Connect(function(Obj
 	table.insert(Globals.FogInstances, Object)
 end)
 
-local RusherAliases = { Rush=true, Ambush=true, Eyes=true, Lookman=true, Blitz=true, ["A-60"]=true, ["A-120"]=true, AR0xMBUSH=true, ["RNIUSHCG=="]=true, ["Custom Entity"]=true }
+local RusherAliases = { Rush=true, Ambush=true, Eyes=true, Lookman=true, Blitz=true, ["A-60"]=true, ["A-120"]=true, AR0xMBUSH=true, ["RNIUSHCG=="]=true, ["Custom Entity"]=true, Bash=true }
 
 Connections.EntityHandler = Services.Workspace.ChildAdded:Connect(function(Entity)
 	local EntityData = Entities[Entity.Name]
