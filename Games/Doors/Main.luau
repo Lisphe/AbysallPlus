@@ -154,6 +154,7 @@ local EntityIcons = {
 	["SallyMoving"]     = "rbxassetid://10840888070",
 	["MonumentEntity"]  = "rbxassetid://88933556873017",
 	["Groundskeeper"]   = "rbxassetid://114991380115557"
+	["BashMoving"]      = "rbxassetid://10716032262"
 }
 
 local ItemNames = {
