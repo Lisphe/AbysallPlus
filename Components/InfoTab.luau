@@ -1,11 +1,11 @@
 return function(Window)
     local LatestChangelog = {
-        "11/7/2026",
-        "<font color='rgb(0, 255, 0)'>+ Added Entity ESP Selection</font>",
-		"<font color='rgb(0, 255, 0)'>+ Added Item Notifier</font>",
-		"<font color='rgb(0, 255, 0)'>+ Added Remove Surge</font>",
-		"<font color='rgb(0, 255, 0)'>+ Added Death Farm</font>",
-		"<font color='rgb(0, 255, 0)'>+ Fixed Some Broken Features (Bypass Eyes, etc)</font>",
+        "7/10/2026",
+        "<font color='rgb(255, 0, 0)'>+ HidingSpot1,2 & 3 Not Working Needs To Be Fixed</font>",
+		"<font color='rgb(0, 255, 0)'>+ Added Bash In Entities Notifier</font>",
+		"<font color='rgb(0, 255, 0)'>+ Fixed Auto-Interact With SeatPrompt And TrashcanPrompt</font>",
+		"<font color='rgb(0, 255, 0)'>+ Added Pizza And Paper Plane To Items Esp</font>",
+		"<font color='rgb(0, 255, 0)'>+ Added Creak & Honcho To Entities Esp</font>",
     }
 
     local function CloneReference(Object)
