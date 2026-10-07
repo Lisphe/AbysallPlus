@@ -130,6 +130,10 @@ local Entities = {
 	["SallyMoving"] = {
 		Alias = "Sally",
 		NotifyMessage = { Title = "Entity 'Sally' has spawned.", Body = "Drop an item for her." }
+	},
+	[”BashMoving”] = {
+		Alias = ”Bash”,
+		NotifyMessage = { Title = ”Entity 'Bash' has spawned.”, Body = ”Find a hiding spot.” }
 	}
 }
 
@@ -210,6 +214,8 @@ local ItemNames = {
 	["Donut"]             = "Donut",
 	["Lotus"]             = "Lotus",
 	["BoxingGloves"]      = "Boxing Gloves"
+	[”Pizza”]             = ”Pizza”
+	[”PaperPlane”]        = ”Paper Plane”
 }
 
 local CutsceneNames = {
