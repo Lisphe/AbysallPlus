@@ -1054,7 +1054,7 @@ local Tabs = {
 
 Groupboxes.General_Character = Tabs.General:AddLeftGroupbox("Character")
 Groupboxes.General_Character:AddSlider("SpeedBoostSlider", {
-	Text = "Speed Boost", Min = 0, Max = 200, Default = 0, Rounding = 0, Compact = true
+	Text = "Speed Boost", Min = 0, Max = 1000, Default = 0, Rounding = 0, Compact = true
 })
 Groupboxes.General_Character:AddToggle("SpeedBoostToggle", {
 	Text = "Enable Speed Boost", Default = false, Tooltip = "Increases your walkspeed by the specified amount."
