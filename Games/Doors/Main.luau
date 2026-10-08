@@ -1296,11 +1296,7 @@ Groupboxes.Exploits_Bypass:AddToggle("BypassDrones",         { Text = "Bypass Dr
 Toggles.BypassDrones:OnChanged(function(Value)
 	for _, Object in Objects.Entities do
 		if Object.Name == "Drone" then
-			if Toggles.BypassDrones.Value == true then
-				Object:WaitForChild("WalkedInto").Name = "WalkedIntoDISABLED"
-			else
-				Object:WaitForChild("WalkedIntoDISABLED").Name = "WalkedInto"
-			end
+			Object:WaitForChild("WalkedInto").Name = Value and "WalkedIntoDISABLED" or "WalkedInto"
 		end
 	end
 end)
