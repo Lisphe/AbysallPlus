@@ -4178,7 +4178,8 @@ end
 local AutoInteractBlacklist = {
 	HidePrompt=true, RiftPrompt=true, StarRiftPrompt=true, InteractPrompt=true, ClimbPrompt=true,
 	DonatePrompt=true, DialoguePrompt=true, RevivePrompt=true, EnterPrompt=true, AnimatePrompt=true,
-	ToolEventPrompt=true, Prompt=true, PropPrompt=true, SeatPrompt=true, TrashcanPrompt=true
+	ToolEventPrompt=true, Prompt=true, PropPrompt=true, SeatPrompt=true, TrashcanPrompt=true,
+	VendorPrompt=true
 }
 
 local TriggerDebounce = false
