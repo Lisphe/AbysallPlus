@@ -975,8 +975,8 @@ Functions.GetDoorNumber = function(Object)
 		DoorNumber = DoorNumber - 50
 	end
 	if Floor == "Archives" then
-    local letterIndex = math.floor(CurrentDoor / 50)
-    DoorNumber = string.char(65 + letterIndex)
+		local letterIndex = math.floor(CurrentDoor / 50)
+		DoorNumber = string.char(65 + letterIndex)
 	end
 
 	return tostring(DoorNumber)
