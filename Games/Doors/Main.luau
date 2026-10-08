@@ -134,6 +134,10 @@ local Entities = {
 	["BashMoving"] = {
 		Alias = "Bash",
 		NotifyMessage = { Title = "Entity 'Bash' has spawned.", Body = "Find a hiding spot." }
+	},
+	["Scribbles"] = {
+		Alias = "Scribbles",
+		NotifyMessage = { Title = "Entity 'Scribbles' has spawned.", Body = "Find a hiding spot." }
 	}
 }
 
@@ -154,7 +158,8 @@ local EntityIcons = {
 	["SallyMoving"]     = "rbxassetid://10840888070",
 	["MonumentEntity"]  = "rbxassetid://88933556873017",
 	["Groundskeeper"]   = "rbxassetid://114991380115557",
-	["BashMoving"]      = "rbxassetid://10716032262"
+	["BashMoving"]      = "rbxassetid://10716032262",
+	["Scribbles"]       = "rbxassetid://10716032262"
 }
 
 local ItemNames = {
@@ -216,7 +221,9 @@ local ItemNames = {
 	["Lotus"]             = "Lotus",
 	["BoxingGloves"]      = "Boxing Gloves",
 	["Pizza"]             = "Pizza",
-	["PaperPlane"]        = "Paper Plane"
+	["PaperPlane"]        = "Paper Plane",
+	["HoneyPot"]          = "Honey Pot",
+	["CoinRoll"]          = "Coin Roll"
 }
 
 local CutsceneNames = {
@@ -767,6 +774,7 @@ local EntityDistances = {
 	["BackdoorRush"]  = 85,
 	["CustomEntity"]  = 85,
 	["BashMoving"]    = 85,
+	["Scribbles"]     = 85,
 }
 
 Functions.GetNearestEntity = function(CheckDisabled, List, UseRaycasting)
@@ -1042,7 +1050,7 @@ local Tabs = {
 
 Groupboxes.General_Character = Tabs.General:AddLeftGroupbox("Character")
 Groupboxes.General_Character:AddSlider("SpeedBoostSlider", {
-	Text = "Speed Boost", Min = 0, Max = 100, Default = 0, Rounding = 0, Compact = true
+	Text = "Speed Boost", Min = 0, Max = 200, Default = 0, Rounding = 0, Compact = true
 })
 Groupboxes.General_Character:AddToggle("SpeedBoostToggle", {
 	Text = "Enable Speed Boost", Default = false, Tooltip = "Increases your walkspeed by the specified amount."
@@ -1220,7 +1228,7 @@ Toggles.AutoClosetToggle:AddKeyPicker("AutoClosetKeybind", {
 })
 Groupboxes.Self_Automation:AddDropdown("AutoClosetEntityList", {
 	Text = "Ignore List",
-	Values = { "Rush", "Ambush", "Blitz", "A-60", "A-120", "AR0xMBUSH", "RNIUSHCG==", "Bash" },
+	Values = { "Rush", "Ambush", "Blitz", "A-60", "A-120", "AR0xMBUSH", "RNIUSHCG==", "Bash", "Scribbles" },
 	Multi = true, AllowNull = true
 })
 Groupboxes.Self_Automation:AddToggle("SpectateEntityToggle", {
@@ -1721,7 +1729,7 @@ Groupboxes.Visuals_EntitySettings = Groupboxes.Visuals_RightTab:AddTab("Settings
 
 Groupboxes.Visuals_Entities:AddDropdown("EntityList", {
 	Text = "Entity List",
-	Values = { "Rush","Ambush","Eyes","Halt","Blitz","Lookman","Gloombat Swarm","A-60","A-120","Sally","Jeff the Killer","Groundskeeper","Monument","AR0xMBUSH","RNIUSHCG==", "Bash" },
+	Values = { "Rush","Ambush","Eyes","Halt","Blitz","Lookman","Gloombat Swarm","A-60","A-120","Sally","Jeff the Killer","Groundskeeper","Monument","AR0xMBUSH","RNIUSHCG==", "Bash", "Scribbles", "Creak" },
 	Multi = true, AllowNull = true
 })
 Groupboxes.Visuals_Entities:AddToggle("NotifyEntities",    { Text = "Notify Entities",    Default = false, Tooltip = "Sends a notification when an entity spawns." })
@@ -1851,7 +1859,7 @@ Groupboxes.Visuals_ESP_Toggles:AddToggle("LadderESPToggle",     { Text = "Ladder
 Groupboxes.Visuals_ESP_Toggles:AddDivider()
 Groupboxes.Visuals_ESP_Toggles:AddDropdown("EntityESPOptions",     { 
 	Text = "Entity List",
-	Values = { "Rush","Ambush","Eyes","Dupe","Figure","Blitz","Lookman","Snare","Giggle","Gloombat Eggs","Grumble","A-60","A-120","Sally","Jeff the Killer","Groundskeeper","Mandrake Hole","Monument","Bramble","AR0xMBUSH","RNIUSHCG==","Bash" },
+	Values = { "Rush","Ambush","Eyes","Dupe","Figure","Blitz","Lookman","Snare","Giggle","Gloombat Eggs","Grumble","A-60","A-120","Sally","Jeff the Killer","Groundskeeper","Mandrake Hole","Monument","Bramble","AR0xMBUSH","RNIUSHCG==","Bash", "Scribbles", "Creak" },
 	Multi = true,
 	AllowNull = true
 })
@@ -1886,7 +1894,7 @@ local EntityESPLabels = {
 }
 
 local NodeEntities = {
-	Rush = true, Ambush = true, Eyes = true, Blitz = true, Lookman = true, ["A-60"] = true, ["A-120"] = true, Sally = true, ["Jeff The Killer"] = true, Monument = true, ["AR0xMBUSH"] = true, ["RNIUSHCG=="] = true, Bash = true
+	Rush = true, Ambush = true, Eyes = true, Blitz = true, Lookman = true, ["A-60"] = true, ["A-120"] = true, Sally = true, ["Jeff The Killer"] = true, Monument = true, ["AR0xMBUSH"] = true, ["RNIUSHCG=="] = true, Bash = true, Scribbles = true
 }
 
 Toggles.DoorESPToggle:OnChanged(function(Value)
@@ -2153,7 +2161,7 @@ Functions.RoomsAutoWalk.GetNearestHidingSpot = function()
 	return Nearest.Object
 end
 
-local RoomsEntityList = { "RushMoving","AmbushMoving","BackdoorRush","A60","A120","CustomEntity","GlitchRush","GlitchAmbush","BashMoving" }
+local RoomsEntityList = { "RushMoving","AmbushMoving","BackdoorRush","A60","A120","CustomEntity","GlitchRush","GlitchAmbush","BashMoving", "Scribbles" }
 Functions.RoomsAutoWalk.GetPathfindTarget = function()
 	for _, Object in Services.Workspace:GetChildren() do
 		if table.find(RoomsEntityList, Object.Name) and Object.PrimaryPart then
