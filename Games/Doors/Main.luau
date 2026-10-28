@@ -1101,6 +1101,9 @@ Groupboxes.General_Character:AddDivider()
 Groupboxes.General_Character:AddToggle("EnableCharacterJump", {
 	Text = "Enable Jumping", Default = false, Tooltip = "Allows your character to jump."
 })
+Groupboxes.General_Character:AddToggle("EnableCharacterSprint", {
+	Text = "Enable Sprinting", Default = false, Tooltip = "Allows your character to Sprint."
+})
 Groupboxes.General_Character:AddToggle("EnableCharacterSlide", {
 	Text = "Enable Sliding", Default = false, Tooltip = "Allows your character to slide."
 })
@@ -1110,6 +1113,7 @@ Groupboxes.General_Character:AddToggle("InfiniteJumps", {
 
 local OldJump = false
 local OldSlide = false
+local OldSprint = false
 
 Toggles.SpeedBoostToggle:OnChanged(function(Value)
 	if Humanoid then
@@ -1119,6 +1123,11 @@ end)
 Toggles.EnableCharacterJump:OnChanged(function(Value)
 	if Character then
 		Character:SetAttribute("CanJump", Value and true or OldJump)
+	end
+end)
+Toggles.EnableCharacterSprint:OnChanged(function(Value)
+	if Character then
+		Character:SetAttribute("CanSprint", Value and true or OldSprint)
 	end
 end)
 Toggles.EnableCharacterSlide:OnChanged(function(Value)
